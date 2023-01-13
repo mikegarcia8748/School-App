@@ -1,4 +1,4 @@
-package com.mobilelearning.solutions.school_app.ui.dashboard;
+package com.mobilelearning.solutions.school_app.ViewModel;
 
 import androidx.lifecycle.ViewModel;
 

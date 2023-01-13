@@ -17,6 +17,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:elevation="5dp"
         android:theme="@style/TransparentToolbar"
         app:popupTheme="@style/Theme.School_App.PopupOverlay">
 
@@ -24,12 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="School App"
-            android:typeface="serif"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="?attr/colorOnPrimary"
-            android:layout_gravity="center"
-            android:gravity="center"/>
+            style="@style/ToolbarTitle"/>
 
     </androidx.appcompat.widget.Toolbar>
 

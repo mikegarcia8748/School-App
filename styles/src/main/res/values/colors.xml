@@ -15,7 +15,10 @@
     <color name="background_light">#FEFEFE</color>
 
     <color name="colorPrimary">#304ffe</color>
-    <color name="colorSecondary">#0026ca</color>
+    <color name="colorSecondary">#64c1ff</color>
+
+    <color name="colorPrimaryVariantLight">#0026ca</color>
+    <color name="colorPrimaryVariantDark">#64c1ff</color>
 
     <color name="primaryColor">#212121</color>
     <color name="primaryLightColor">#484848</color>
