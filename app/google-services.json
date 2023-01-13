@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "420170001030",
+    "firebase_url": "https://school-app-b914e-default-rtdb.firebaseio.com",
     "project_id": "school-app-b914e",
     "storage_bucket": "school-app-b914e.appspot.com"
   },

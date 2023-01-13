@@ -24,6 +24,7 @@
         <activity
             android:name=".Activity_Home"
             android:exported="true"
+            android:label=""
             android:theme="@style/Theme.School_App.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

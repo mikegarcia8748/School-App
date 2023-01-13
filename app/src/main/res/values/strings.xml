@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">School_App</string>
+    <string name="app_name">School App</string>
     <string name="title_activity_dashboard">Activity_Dashboard</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -15,4 +15,9 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_campus">Campus</string>
+    <string name="menu_room">Classroom</string>
+    <string name="menu_messages">Messages</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="menu_profile">Profile</string>
 </resources>

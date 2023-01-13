@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mobilelearning.solutions.school_app.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+public class Fragment_Home extends Fragment {
 
     private FragmentHomeBinding binding;
 

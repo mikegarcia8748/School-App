@@ -3,6 +3,13 @@
 
     <application>
         <activity
+            android:name=".Activity_SignIn"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.login.Activity_Login"
             android:exported="false"
             android:label="@string/title_activity_login" />
