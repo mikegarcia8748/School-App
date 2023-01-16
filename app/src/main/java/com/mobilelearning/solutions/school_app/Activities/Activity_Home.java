@@ -1,4 +1,4 @@
-package com.mobilelearning.solutions.school_app;
+package com.mobilelearning.solutions.school_app.Activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.mobilelearning.solutions.school_app.R;
 import com.mobilelearning.solutions.school_app.databinding.ActivityHomeBinding;
 
 public class Activity_Home extends AppCompatActivity {
@@ -41,7 +42,10 @@ public class Activity_Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home,
+                R.id.nav_gallery,
+                R.id.nav_slideshow,
+                R.id.nav_profile)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_activity_home);

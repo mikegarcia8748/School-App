@@ -55,4 +55,5 @@ dependencies {
     implementation project(path: ':classroom')
     implementation project(path: ':enrollment')
     implementation project(path: ':notifications')
+    implementation project(path: ':account')
 }

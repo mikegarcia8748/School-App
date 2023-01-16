@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.mobilelearning.solutions.Fragment_Campus;
+import com.mobilelearning.solutions.account.Fragment_Profile;
 import com.mobilelearning.solutions.classroom.Fragment_Classroom;
 import com.mobilelearning.solutions.notifications.Fragment_Messages;
 import com.mobilelearning.solutions.notifications.Fragment_Notifications;
@@ -88,7 +89,7 @@ public class Fragment_Dashboard extends Fragment {
             loList.add(new Fragment_Classroom());
             loList.add(new Fragment_Messages());
             loList.add(new Fragment_Notifications());
-            loList.add(new Fragment_Campus());
+            loList.add(new Fragment_Profile());
         }
 
         @NonNull

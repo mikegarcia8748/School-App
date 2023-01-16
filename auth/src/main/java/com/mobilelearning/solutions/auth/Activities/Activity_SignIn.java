@@ -3,10 +3,12 @@ package com.mobilelearning.solutions.auth.Activities;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.IntentSenderRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
@@ -24,12 +26,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.mobilelearning.solutions.auth.R;
 
 public class Activity_SignIn extends AppCompatActivity {
@@ -47,28 +54,59 @@ public class Activity_SignIn extends AppCompatActivity {
     private SignInClient oneTapClient;
     private BeginSignInRequest signInRequest;
 
+    private final ActivityResultLauncher<IntentSenderRequest> signIn = registerForActivityResult(new ActivityResultContracts.StartIntentSenderForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            try {
+//                SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(result.getData());
+//                String idToken = credential.getGoogleIdToken();
+//                String username = credential.getId();
+//                String password = credential.getPassword();
+//                if (idToken != null) {
+//                    // Got an ID token from Google. Use it to authenticate
+//                    // with your backend.
+//                    Log.d(TAG, "Got ID token.");
+//                } else if (password != null) {
+//                    // Got a saved username and password. Use them to authenticate
+//                    // with your backend.
+//                    Log.d(TAG, "Got password.");
+//                }
+
+                SignInCredential loCredential = oneTapClient.getSignInCredentialFromIntent(result.getData());
+                String lsToken = loCredential.getGoogleIdToken();
+                if(lsToken == null){
+
+                } else {
+                    AuthCredential loAuth = GoogleAuthProvider.getCredential(lsToken, null);
+                    mAuth.signInWithCredential(loAuth)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Log.d(TAG, "signInWithCredential:success");
+                                        FirebaseUser user = mAuth.getCurrentUser();
+//                                        updateUI(user);
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Log.w(TAG, "signInWithCredential:failure", task.getException());
+//                                        updateUI(null);
+                                    }
+                                }
+                            });
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    });
+
     private ActivityResultLauncher<Intent> poSignIn = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
 //            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
 //            handleSignInResult(task);
-            try {
-                SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(result.getData());
-                String idToken = credential.getGoogleIdToken();
-                String username = credential.getId();
-                String password = credential.getPassword();
-                if (idToken != null) {
-                    // Got an ID token from Google. Use it to authenticate
-                    // with your backend.
-                    Log.d(TAG, "Got ID token.");
-                } else if (password != null) {
-                    // Got a saved username and password. Use them to authenticate
-                    // with your backend.
-                    Log.d(TAG, "Got password.");
-                }
-            } catch (Exception e){
-                e.printStackTrace();
-            }
+
         }
     });
 
@@ -115,14 +153,10 @@ public class Activity_SignIn extends AppCompatActivity {
                             public void onSuccess(BeginSignInResult beginSignInResult) {
 //                        Log.d(TAG, "Account save successfully");
 //                        Toast.makeText(Activity_SignIn.this, "Account save successfully", Toast.LENGTH_SHORT).show();
-                                try {
-//                            poSignIn.launch(beginSignInResult.getPendingIntent().getIntentSender());
-                                    startIntentSenderForResult(
-                                            beginSignInResult.getPendingIntent().getIntentSender(), REQ_ONE_TAP,
-                                            null, 0, 0, 0);
-                                } catch (IntentSender.SendIntentException e) {
-                                    Log.e(TAG, "Couldn't start One Tap UI: " + e.getLocalizedMessage());
-                                }
+                                //                            poSignIn.launch(beginSignInResult.getPendingIntent().getIntentSender());
+                                PendingIntent pendingIntent = beginSignInResult.getPendingIntent();
+                                IntentSenderRequest loRequest = new IntentSenderRequest.Builder(pendingIntent).build();
+                                signIn.launch(loRequest, null);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
