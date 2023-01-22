@@ -32,27 +32,25 @@
         <activity
             android:name="com.mobilelearning.solutions.auth.Activities.Activity_SignIn"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-
-        <activity
-            android:name=".Activities.Activity_Home"
-            android:exported="true"
-            android:label=""
-            android:theme="@style/Theme.School_App.NoActionBar">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name="com.mobilelearning.solutions.enrollment.Activities.Activity_StudentInfo"
+            android:exported="true"
+            android:label="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"

@@ -1,0 +1,28 @@
+<resources>
+
+<!--    Headers-->
+    <string name="header_basic_info">Basic Information</string>
+    <string name="header_addres_info">Address Information</string>
+    <string name="header_present_address">Present Address</string>
+    <string name="header_permanent_address">Permanent Address</string>
+    <string name="header_emergency_contact">Emergency Contact</string>
+
+<!--    Hints-->
+    <string name="hint_lastname">Last Name</string>
+    <string name="hint_firstname">First Name</string>
+    <string name="hint_middname">Middle Name</string>
+    <string name="hint_suffix">Suffix</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_mobileNo">Mobile No.</string>
+    <string name="hint_birthDate">Birth Date</string>
+    <string name="hint_birthPlce">Birth Place</string>
+    <string name="hint_houseNo">House No.</string>
+    <string name="hint_street">Street Address</string>
+    <string name="hint_barangay">Barangay</string>
+    <string name="hint_town">Town</string>
+    <string name="hint_postalID">Postal ID</string>
+    <string name="hint_relation">Relationship</string>
+
+<!--    Button Text-->
+    <string name="btn_continue">Continue</string>
+</resources>

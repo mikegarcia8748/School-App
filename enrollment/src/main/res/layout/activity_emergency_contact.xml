@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.School_App"
+    tools:context=".Activities.Activity_EmergencyContact">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Student Enrollment"
+            android:theme="@style/TransparentToolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/header_basic_info"
+            style="@style/Theme.School_App.HeaderLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilLastName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:hint="@string/hint_lastname"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    style="@style/Theme.School_App.TextInput" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFirstName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:hint="@string/hint_firstname"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilLastName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    style="@style/Theme.School_App.TextInput" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRelationship"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_relation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilFirstName">
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtRelationship"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Theme.School_App.TextInputAutoComplete"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMobileNo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:hint="@string/hint_mobileNo"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilRelationship">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtMobileNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number|none"
+                    android:maxLength="10"
+                    style="@style/Theme.School_App.TextInput" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:hint="@string/hint_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilMobileNo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    style="@style/Theme.School_App.TextInput" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilHouseNo"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_houseNo"
+                app:layout_constraintEnd_toStartOf="@+id/tilStreet"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtHouseNo"
+                    style="@style/Theme.School_App.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilStreet"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_street"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+                app:layout_constraintWidth_percent=".65">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtStreet"
+                    style="@style/Theme.School_App.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTown"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:hint="@string/hint_town"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilStreet">
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtTown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Theme.School_App.TextInputAutoComplete"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilBrgy"
+                style="@style/Theme.School_App.TextInputContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_barangay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilTown">
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtBrgy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Theme.School_App.TextInputAutoComplete"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/btn_continue"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintEnd_toEndOf="@+id/tilBrgy"
+                app:layout_constraintTop_toBottomOf="@+id/tilBrgy" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
